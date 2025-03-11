@@ -25,6 +25,11 @@ jobs:
           unzip sonar-scanner.zip
           sudo mv sonar-scanner-5.0.1.3006-linux /opt/sonar-scanner
           echo "export PATH=/opt/sonar-scanner/bin:$PATH" >> $GITHUB_ENV
+          echo "export SONAR_SCANNER_HOME=/opt/sonar-scanner" >> $GITHUB_ENV
+          echo "Installation completed"
+
+      - name: Verify SonarQube Scanner
+        run: sonar-scanner --version
 
       - name: Run SonarQube Scanner
         run: |
